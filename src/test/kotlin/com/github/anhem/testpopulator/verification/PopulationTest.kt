@@ -11,6 +11,8 @@ class PopulationTest {
 
     private val config = PopulateConfig.builder()
         .kotlinSupport()
+        .and()
+        .objectFactoryEnabled(true)
         .build()
     private val factory = PopulateFactory(config)
 
