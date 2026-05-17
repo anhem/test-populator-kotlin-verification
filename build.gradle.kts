@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
+    kotlin("jvm") version "2.2.21"
 }
 
 group = "com.github.anhem"
@@ -11,11 +11,11 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.anhem:test-populator:0.1.25-SNAPSHOT")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.assertj:assertj-core:3.27.7")
+    testImplementation("com.github.anhem:test-populator:1.0.0")
 }
 
 tasks.test {
@@ -23,5 +23,5 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(23)
+    jvmToolchain(21)
 }

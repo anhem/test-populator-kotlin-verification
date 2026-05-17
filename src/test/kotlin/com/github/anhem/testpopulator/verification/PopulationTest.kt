@@ -5,12 +5,11 @@ import com.github.anhem.testpopulator.config.PopulateConfig
 import com.github.anhem.testpopulator.verification.model.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
-import kotlin.test.assertNotNull
 
 class PopulationTest {
 
     private val config = PopulateConfig.builder()
-        .kotlinSupport()
+        .kotlinSupport(true)
         .and()
         .objectFactoryEnabled(true)
         .build()
@@ -29,11 +28,12 @@ class PopulationTest {
     @Test
     fun `can populate data class with default values`() {
         val defaultConfig = PopulateConfig.builder()
-            .kotlinSupport()
-            .useDefaultValues()
+            .kotlinSupport(true)
+            .defaultValues(true)
+            .and()
             .build()
         val defaultFactory = PopulateFactory(defaultConfig)
-        
+
         val result = defaultFactory.populate(MyDataClass::class.java)
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
@@ -44,9 +44,10 @@ class PopulationTest {
     @Test
     fun `can populate class with companion factory`() {
         val staticConfig = PopulateConfig.builder()
-            .kotlinSupport()
+            .kotlinSupport(true)
             .and()
             .staticMethodStrategy()
+            .and()
             .build()
         val staticFactory = PopulateFactory(staticConfig)
 
