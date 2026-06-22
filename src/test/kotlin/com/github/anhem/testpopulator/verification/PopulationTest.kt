@@ -116,4 +116,14 @@ class PopulationTest {
         assertThat(result.value).isNotBlank()
         com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
+
+    @Test
+    fun `can populate kotlin class with java field`() {
+        val result = factory.populate(MyKotlinClassWithJavaField::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.javaPojo).isNotNull
+        assertThat(result.javaPojo.stringValue).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
 }

@@ -17,6 +17,11 @@ sealed class MySealedClass {
 @JvmInline
 value class MyValueClass(val value: String)
 
+data class MyKotlinClassWithJavaField(
+    val javaPojo: MyJavaPojo,
+    val stringValue: String
+)
+
 enum class MyEnum {
     ONE, TWO, THREE
 }

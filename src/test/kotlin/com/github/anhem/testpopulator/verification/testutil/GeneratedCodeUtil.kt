@@ -59,7 +59,7 @@ object GeneratedCodeUtil {
                 .withEqualsForType({ _, _ -> true }, Iterator::class.java)
                 .isEqualTo(expectedObj)
         } finally {
-            //removeGeneratedFiles(path)
+            removeGeneratedFiles(path)
         }
     }
 
