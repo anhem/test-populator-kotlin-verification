@@ -11,7 +11,7 @@ class PopulationTest {
     private val config = PopulateConfig.builder()
         .kotlinSupport(true)
         .and()
-        .objectFactoryEnabled(true)
+        .objectFactory(true)
         .build()
     private val factory = PopulateFactory(config)
 
@@ -23,6 +23,7 @@ class PopulationTest {
         assertThat(result.id).isNotNull()
         assertThat(result.name).isNotBlank()
         assertThat(result.tags).isNotEmpty()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -31,6 +32,7 @@ class PopulationTest {
             .kotlinSupport(true)
             .defaultValues(true)
             .and()
+            .objectFactory(true)
             .build()
         val defaultFactory = PopulateFactory(defaultConfig)
 
@@ -48,6 +50,7 @@ class PopulationTest {
             .and()
             .staticMethodStrategy()
             .and()
+            .objectFactory(true)
             .build()
         val staticFactory = PopulateFactory(staticConfig)
 
@@ -55,6 +58,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.value).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, staticConfig)
     }
 
     @Test
@@ -63,6 +67,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).isSameAs(MySingleton)
         assertThat(result.name).isEqualTo("Singleton")
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -73,6 +78,7 @@ class PopulationTest {
         assertThat(result.required).isNotBlank()
         assertThat(result.optional).isNotEqualTo("default")
         assertThat(result.anotherOptional).isNotEqualTo(123)
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -80,6 +86,7 @@ class PopulationTest {
         val result = factory.populate(MyEnum::class.java)
         assertThat(result).isNotNull
         assertThat(result).isIn(*MyEnum.entries.toTypedArray())
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -88,6 +95,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.message).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -97,6 +105,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.code).isNotZero()
         assertThat(result.throwable).isNotNull()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -105,5 +114,6 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.value).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 }

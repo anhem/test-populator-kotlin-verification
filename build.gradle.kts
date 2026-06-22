@@ -15,11 +15,13 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
     testImplementation("org.assertj:assertj-core:3.27.7")
-    testImplementation("com.github.anhem:test-populator:1.0.0")
+    testImplementation("com.github.anhem:test-populator:1.0.2-SNAPSHOT")
+    testImplementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.2.21")
 }
 
 tasks.test {
     useJUnitPlatform()
+    systemProperty("test.classpath", sourceSets.test.get().runtimeClasspath.asPath)
 }
 
 kotlin {
