@@ -41,3 +41,13 @@ class MyClassWithCompanion(val value: String) {
         fun create(value: String) = MyClassWithCompanion(value)
     }
 }
+
+class MyClassWithNullables(val text: String?, val number: Int?)
+
+class MyMutableClass(var mutableString: String, var mutableInt: Int)
+
+class MyClassWithCollections(val strings: List<String>, val map: Map<String, Int>)
+
+class MyClassWithSecondaryConstructor(val mainProp: String) {
+    constructor(mainProp: String, extra: String) : this(mainProp)
+}

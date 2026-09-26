@@ -126,4 +126,70 @@ class PopulationTest {
         assertThat(result.javaPojo.stringValue).isNotBlank()
         com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
+
+    @Test
+    fun `can populate class with nullables`() {
+        val result = factory.populate(MyClassWithNullables::class.java)
+        assertThat(result).isNotNull
+        assertThat(result.text).isNotNull()
+        assertThat(result.number).isNotNull()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate mutable class`() {
+        val result = factory.populate(MyMutableClass::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.mutableString).isNotBlank()
+        assertThat(result.mutableInt).isNotZero()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate class with collections`() {
+        val result = factory.populate(MyClassWithCollections::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.strings).isNotEmpty()
+        assertThat(result.map).isNotEmpty()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate class with secondary constructor`() {
+        val result = factory.populate(MyClassWithSecondaryConstructor::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.mainProp).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate java record`() {
+        val result = factory.populate(MyJavaRecord::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.name()).isNotBlank()
+        assertThat(result.value()).isNotZero()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate java enum`() {
+        val result = factory.populate(MyJavaEnum::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).isIn(*MyJavaEnum.values())
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate java pojo with kotlin field`() {
+        val result = factory.populate(MyJavaPojoWithKotlinField::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.myDataClass).isNotNull()
+        assertThat(result.myJavaEnum).isNotNull()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
 }
