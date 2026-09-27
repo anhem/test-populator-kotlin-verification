@@ -21,9 +21,7 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    doFirst {
-        systemProperty("test.classpath", sourceSets.test.get().runtimeClasspath.asPath)
-    }
+    systemProperty("test.classpath", providers.provider { sourceSets.test.get().runtimeClasspath.asPath })
 }
 
 kotlin {
