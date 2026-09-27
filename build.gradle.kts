@@ -7,7 +7,6 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
-    mavenLocal()
 }
 
 dependencies {
@@ -15,7 +14,7 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
     testImplementation("org.assertj:assertj-core:3.27.7")
-    testImplementation("com.github.anhem:test-populator:1.0.2-SNAPSHOT")
+    testImplementation("com.github.anhem:test-populator:1.1.0")
     testImplementation("org.jetbrains.kotlin:kotlin-compiler-embeddable:2.2.21")
 }
 
