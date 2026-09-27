@@ -24,7 +24,7 @@ jobs:
 
       - name: Set up Test-Populator (from dev-kotlin-support)
         run: |
-          git clone --branch dev-kotlin-support https://github.com/anhem/test-populator.git
+          git clone https://github.com/anhem/test-populator.git
           cd test-populator
           mvn clean install -DskipTests
           cd ..
