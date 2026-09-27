@@ -18,6 +18,9 @@ The following Kotlin constructs are currently verified in `src/main/kotlin/.../m
 - **Singletons (Objects)**: Verification that `object` instances are correctly handled (returned as same instance).
 - **Classes with Default Parameters**: Population of classes where some parameters have default values.
 - **Companion Objects**: Verification of factory methods within companion objects using `staticMethodStrategy()`.
+- **Vararg Parameters**: Population of classes using `vararg` in constructors.
+- **Lateinit & Lazy**: Verification that classes with `lateinit var` and `by lazy` properties are populated.
+- **Nested & Inner Classes**: Verification that both nested and `inner` classes are handled.
 
 ## Negative Testing (Acceptance Cases)
 

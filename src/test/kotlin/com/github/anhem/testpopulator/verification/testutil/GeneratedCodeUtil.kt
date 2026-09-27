@@ -56,6 +56,7 @@ object GeneratedCodeUtil {
                 .withEqualsForType({ _, _ -> true }, DoubleStream::class.java)
                 .withEqualsForType({ _, _ -> true }, Future::class.java)
                 .withEqualsForType({ _, _ -> true }, Scanner::class.java)
+                .withEqualsForType({ a, b -> a.value == b.value }, Lazy::class.java)
                 .withEqualsForType({ _, _ -> true }, Iterator::class.java)
                 .isEqualTo(expectedObj)
         } finally {

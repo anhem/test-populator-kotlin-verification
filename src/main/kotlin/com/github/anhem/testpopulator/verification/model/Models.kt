@@ -51,3 +51,15 @@ class MyClassWithCollections(val strings: List<String>, val map: Map<String, Int
 class MyClassWithSecondaryConstructor(val mainProp: String) {
     constructor(mainProp: String, extra: String) : this(mainProp)
 }
+
+class MyClassWithVararg(vararg val strings: String)
+
+class MyClassWithLateinitAndLazy {
+    lateinit var lateinitString: String
+    val lazyString: String by lazy { "lazy_default" }
+}
+
+class MyOuterClass(val outerString: String) {
+    class MyNestedClass(val nestedString: String)
+    inner class MyInnerClass(val innerString: String)
+}

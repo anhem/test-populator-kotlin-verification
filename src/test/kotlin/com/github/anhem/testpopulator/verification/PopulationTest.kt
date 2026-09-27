@@ -192,4 +192,40 @@ class PopulationTest {
         assertThat(result.myJavaEnum).isNotNull()
         com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
+
+    @Test
+    fun `can populate class with vararg`() {
+        val result = factory.populate(MyClassWithVararg::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.strings).isNotEmpty()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate class with lateinit and lazy`() {
+        val result = factory.populate(MyClassWithLateinitAndLazy::class.java)
+        assertThat(result).isNotNull
+        assertThat(result.lateinitString).isNotBlank()
+        assertThat(result.lazyString).isEqualTo("lazy_default")
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate nested class`() {
+        val result = factory.populate(MyOuterClass.MyNestedClass::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.nestedString).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
+
+    @Test
+    fun `can populate inner class`() {
+        val result = factory.populate(MyOuterClass.MyInnerClass::class.java)
+        assertThat(result).isNotNull
+        assertThat(result).hasNoNullFieldsOrProperties()
+        assertThat(result.innerString).isNotBlank()
+        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+    }
 }
