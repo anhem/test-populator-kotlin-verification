@@ -3,6 +3,7 @@ package com.github.anhem.testpopulator.verification
 import com.github.anhem.testpopulator.PopulateFactory
 import com.github.anhem.testpopulator.config.PopulateConfig
 import com.github.anhem.testpopulator.verification.model.*
+import com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
@@ -23,7 +24,7 @@ class PopulationTest {
         assertThat(result.id).isNotNull()
         assertThat(result.name).isNotBlank()
         assertThat(result.tags).isNotEmpty()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -58,7 +59,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.value).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, staticConfig)
+        GeneratedCodeUtil.assertGeneratedCode(result, staticConfig)
     }
 
     @Test
@@ -67,7 +68,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).isSameAs(MySingleton)
         assertThat(result.name).isEqualTo("Singleton")
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -78,7 +79,7 @@ class PopulationTest {
         assertThat(result.required).isNotBlank()
         assertThat(result.optional).isNotEqualTo("default")
         assertThat(result.anotherOptional).isNotEqualTo(123)
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -86,7 +87,7 @@ class PopulationTest {
         val result = factory.populate(MyEnum::class.java)
         assertThat(result).isNotNull
         assertThat(result).isIn(*MyEnum.entries.toTypedArray())
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -95,7 +96,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.message).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -105,7 +106,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.code).isNotZero()
         assertThat(result.throwable).isNotNull()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -114,7 +115,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.value).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -124,7 +125,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.javaPojo).isNotNull
         assertThat(result.javaPojo.stringValue).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -133,7 +134,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result.text).isNotNull()
         assertThat(result.number).isNotNull()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -143,7 +144,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.mutableString).isNotBlank()
         assertThat(result.mutableInt).isNotZero()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -153,7 +154,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.strings).isNotEmpty()
         assertThat(result.map).isNotEmpty()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -162,7 +163,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.mainProp).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -172,7 +173,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.name()).isNotBlank()
         assertThat(result.value()).isNotZero()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -180,7 +181,7 @@ class PopulationTest {
         val result = factory.populate(MyJavaEnum::class.java)
         assertThat(result).isNotNull
         assertThat(result).isIn(*MyJavaEnum.values())
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -190,7 +191,7 @@ class PopulationTest {
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.myDataClass).isNotNull()
         assertThat(result.myJavaEnum).isNotNull()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -199,7 +200,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.strings).isNotEmpty()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -208,7 +209,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result.lateinitString).isNotBlank()
         assertThat(result.lazyString).isEqualTo("lazy_default")
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -217,7 +218,7 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.nestedString).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 
     @Test
@@ -226,6 +227,6 @@ class PopulationTest {
         assertThat(result).isNotNull
         assertThat(result).hasNoNullFieldsOrProperties()
         assertThat(result.innerString).isNotBlank()
-        com.github.anhem.testpopulator.verification.testutil.GeneratedCodeUtil.assertGeneratedCode(result, config)
+        GeneratedCodeUtil.assertGeneratedCode(result, config)
     }
 }
