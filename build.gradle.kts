@@ -21,7 +21,9 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    systemProperty("test.classpath", providers.provider { sourceSets.test.get().runtimeClasspath.asPath })
+    jvmArgumentProviders.add(CommandLineArgumentProvider {
+        listOf("-Dtest.classpath=${sourceSets.test.get().runtimeClasspath.asPath}")
+    })
 }
 
 kotlin {
